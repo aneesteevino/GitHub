@@ -33,7 +33,7 @@ header{
     background-color: #282f40;
 }
 .container-1{
-    height: 100%;
+    height: 1009487%;
     width: 80%;
     /* border: 1px solid black; */
     display: flex;
@@ -82,6 +82,9 @@ input{
     border: none;
     outline: none;
     color: var(--whiteColor);
+    border: none;
+    outline: none;
+
 }
 
 .searchbtn{
@@ -99,6 +102,22 @@ input{
     gap: 10px;
 
 }
+#toggle button{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 40px;
+    border: none;
+    margin-right: 5px;
+    border-radius: 50px;
+    background-color: #282f40;
+    color: var(--whiteColor);
+   font-size: 12px;
+}
+
+
 .toggle-button p{
     color:black;
 }
@@ -114,7 +133,7 @@ input{
     background-size: cover;
     background-repeat: no-repeat;
 
-
+   
     display: flex;
     gap: 2px;
 }
@@ -125,7 +144,7 @@ section{
     width: 25%;
     flex: 1;
     /* border: 1px solid white; */
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -135,6 +154,19 @@ section{
 
     
     /* filter: blur(1px); */
+}
+
+section span {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+section span a{
+     margin-top: 10px;
+     margin-bottom: 15px;
 }
 
 section img{
@@ -208,7 +240,7 @@ article{
     width: 25%;
     flex: 3;
     /* border: 1px solid white; */
-    margin-top: 10px;
+    margin-top: 20px;
     align-items: center;
     background-color: var(--backgroundColor);
     border-top-left-radius: 10px;
@@ -420,7 +452,7 @@ and (max-width:743px) and (max-width:739px)
 
 }
 
-@media screen and (max-width:415) {
+@media screen and (max-width:415px) {
     .card-box-main{
 
     

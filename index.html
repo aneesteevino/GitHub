@@ -21,13 +21,14 @@
             <span class="material-symbols-outlined">
                 search
                 </span>
-                <input type="text" placeholder="Search a Github">
-                <button class="searchbtn">Search</button>
+                <input id="user_input" type="text" placeholder="Search a Github">
+                <button id="searchbtn" class="searchbtn">Search</button>
 
             </div>
-            <div class="toggle-button">    <p>Change theme</p>            <span class="material-symbols-outlined">
-                toggle_off
-                </span></div>
+            <div class="toggle-button">    <p>Change theme</p>        <span id="toggle"> <button id="theme_change">dark</button>  
+            </span>
+            
+            </div>
 
         </nav>
 
@@ -37,30 +38,30 @@
 
         <!-- section starts -->
         <section>
-            <img src="http://www.thefamouspeople.com/profiles/images/elon-musk-1.jpg" alt="">
+            <img id="image" src="http://www.thefamouspeople.com/profiles/images/elon-musk-1.jpg" alt="">
             <span>
-                <h1>
-                    Elon musk
+                <h1 id="uname">
+                   
                 </h1>
-                <a href="https://github.com/aneesteevino">Elon musk</a>
-                <span>
-                    <p>Innovative entrepreneur and visionary behind Tesla, SpaceX, Neuralink, and The Boring Company, pushing the boundaries of technology and space exploration.</p>
+                <a href="" id="userlink"></a>
+                <span id="bio">
+                    <p >Innovative entrepreneur and visionary behind Tesla, SpaceX, Neuralink, and The Boring Company, pushing the boundaries of technology and space exploration.</p>
                  </span>
 
             </span>
-            <div class="seebtn" >
-                <span class="material-symbols-outlined">
+            <div id="usergithub" class="seebtn" >
+                <span id="usergithub" class="material-symbols-outlined">
                     open_in_new
                 </span>
-                    <button>See on github</button>
+                    <button id="usergithub" >See on github</button>
             </div>
 
             <div class="grid">
-                <span>20</span>
+                <span id="repos">20</span>
                 <span>repositories</span>
-                <span>80M</span>
+                <span id="followers">80M</span>
                 <span>Followers</span>
-                <span>5</span>
+                <span id="following">5</span>
                 <span>Following</span>
           
 
@@ -81,8 +82,9 @@
             <li>Followers</li>
             <li>Following</li>
           </ul>
-          <div class="card-box-main">
-            <div class="card-1">
+          <div class="card-box-main" id="repositories"></div>
+          <!-- <div class="card-box-main"> -->
+            <!-- <div class="card-1">
 
                 <div class="part-1">
                 <span id="id-1">
@@ -112,8 +114,8 @@
                             <p>0</p>
                </div>
                
-            </div>
-            <div class="card-1">
+            </div> -->
+            <!-- <div class="card-1">
 
                 <div class="part-1">
                 <span id="id-1">
@@ -236,7 +238,7 @@
                             <p>0</p>
                </div>
                
-            </div>
+            </div> -->
 
             
 
