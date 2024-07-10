@@ -29,21 +29,35 @@ const followers = document.getElementById('followers');
 const following = document.getElementById('following');
 const searchbtn = document.getElementById('searchbtn');
 const user_input = document.getElementById('user_input');
-const repositoriesDiv = document.getElementById('repositories'); // Added this line
+const repositoriesDiv = document.getElementById('repositories'); 
 
 searchbtn.addEventListener('click', async () => {
     let value = user_input.value;
     if (value === '' || value === null || value === undefined) {
+        alert('Please enter a GitHub username');
+        return;
+    }
+    
+    const GitHub_Users_Api = await fetch(`https://api.github.com/users/${value}`);
+    user_input.innerHTML=''
+    if (GitHub_Users_Api.status === 404) {
+        uname.innerHTML = 'User not found';
+        image.src = 'https://seekicon.com/free-icon-download/github-circle_1.svg';
+        bio.innerHTML = 'No bio';
+        repos.innerHTML = 'No';
+        followers.innerHTML = 'No';
+        following.innerHTML = 'No';
+        userlink.href = '';
+        userlink= alert('user not found');
+        repositoriesDiv.innerHTML = ''; // Clear previous results
         return;
     }
 
-    const GitHub_Users_Api = await fetch(`https://api.github.com/users/${value}`);
     const data = await GitHub_Users_Api.json();
 
-    const username = data['name'];
-    const user_image = data['avatar_url'];
-    const user_acc = data['login'];
-    const user_bio = data['bio'];
+    const username = data['name'] || 'No name provided';
+    const user_image = data['avatar_url'] || '';
+    const user_bio = data['bio'] || 'No bio available';
     const user_github = data['html_url'];
     const acc_repos = data['public_repos'];
     const acc_followers = data['followers'];
@@ -52,7 +66,7 @@ searchbtn.addEventListener('click', async () => {
     image.src = user_image;
     uname.innerHTML = username;
     userlink.href = user_github;
-    userlink.innerHTML = `${username}`;
+    userlink.innerHTML = username;
     bio.innerHTML = user_bio;
     repos.innerHTML = acc_repos;
     followers.innerHTML = acc_followers;
@@ -60,19 +74,21 @@ searchbtn.addEventListener('click', async () => {
 
     console.log(data);
 
-    repositories(`https://api.github.com/users/${value}/repos`); // Corrected this line
+    repositories(`https://api.github.com/users/${value}/repos`);
 });
 
-async function repositories(url){
+async function repositories(url) {
     const response = await fetch(url);
     const data = await response.json();
     repositoriesDiv.innerHTML = ''; // Clear previous results
 
-    for(let i = 0; i < data.length; i++){
+
+
+    for (let i = 0; i < data.length; i++) {
         let repositories_name = data[i].name;
-        let repositories_description = data[i].description || "No description available";
+        let repositories_description = data[i].description || 'No description available';
         let repo_public_or_priv = data[i].private ? 'private' : 'public';
-        let language = data[i].language || "N/A";
+        let language = data[i].language || 'N/A';
         let star = data[i].stargazers_count;
         let fork = data[i].forks;
 
@@ -106,24 +122,4 @@ async function repositories(url){
 
 
 
-// async function currentuser(){
-//     const response=await fetch(ApiUrl)
-//     const data= await response.json ()
-    // image.src=user_image
-    // uname.innerHTML=username
-    // userlink.innerHTML=user_acc
-    // bio.innerHTML=bio
-    // usergithub=user_github
-    // usergithub.addEventListener('click',()=>{
-    //     window.open(data.html_url)
-    // })
-    // repos.innerHTML=acc_repos
-    // followers.innerHTML=acc_followers
-    // following.innerHTML=acc_following
-    
-    // console.log(data)
 
-// }
-
-
-// currentuser()
